@@ -48,3 +48,21 @@ content-type: application/json
 
 DELETE https://api-mongodb-dev-nnas.3.us-1.fl0.io/api/users/6542da20c20d9ad95c739701 HTTP/1.1
 content-type: application/json
+
+### POST API-MONGODB
+POST https://api-mongodb-dev-zcjg.1.us-1.fl0.io/api/users HTTP/1.1
+content-type: application/json
+
+{ 
+    "nombre": "Jose", 
+    "edad": 21 
+}
+
+### POST API-MONGODB
+POST https://api-mongodb-dev-zcjg.1.us-1.fl0.io/api/users HTTP/1.1
+content-type: application/json
+
+{ 
+    "nombre": "miguel", 
+    "edad": 20 
+}
