@@ -10,22 +10,40 @@ const DB_NAME = process.env.DB_NAME ?? 'api'
 const COLLECTION = 'users'
 const PORT = process.env.PORT ?? 3000
 
-let mongoClient = null
-let database = null
+// let mongoClient = null
+// let database = null
 
 // Si tenemos conexión anterior, la reutilizamos
-async function connectToDatabase() {
+// async function connectToDatabase() {
+//     try {
+//         if (mongoClient && database) {
+//             return { mongoClient, database };
+//         }
+//         mongoClient = await (new MongoClient(DB_URL)).connect();
+//         database = await mongoClient.db(DB_NAME);
+//         return { mongoClient, database };
+//     } catch (e) {
+//         console.error(e);
+//     }
+// }
+
+const client = new MongoClient(DB_URL)
+const database = null
+
+async function run() {
     try {
-        if (mongoClient && database) {
-            return { mongoClient, database };
-        }
-        mongoClient = await (new MongoClient(DB_URL)).connect();
-        database = await mongoClient.db(DB_NAME);
-        return { mongoClient, database };
-    } catch (e) {
-        console.error(e);
+      // Connect the client to the server	(optional starting in v4.7)
+    //   await client.connect(); 
+      // Send a ping to confirm a successful connection
+      const database = await client.db(DB_NAME);
+      console.log("Conectamos a MongoDB!");
+    } finally {
+      // Ensures that the client will close when you finish/error
+      await client.close();
+      console.log('Salimos');
     }
-}
+  }
+  run().catch(console.dir);
 
 
 app.get("/", (request, response) => {
