@@ -1,5 +1,5 @@
 import { MongoClient } from 'mongodb' // Documentación CRUD: https://mongodb.github.io/node-mongodb-native/6.2/
-import express from "express"
+import express, { request, response } from "express"
 
 const app = express()
 app.use(express.json())  // IMPORTANTE: SOPORTE PARA JSON
@@ -26,6 +26,11 @@ async function connectToDatabase() {
         console.error(e);
     }
 }
+
+
+app.get("/", (request, response) => {
+    response.redirect("/api/users")
+})
 
 
 // GET
@@ -56,7 +61,7 @@ app.post('/api/users', async (request, response) => {
 app.get('/api/users/:id', async (request, response) => {
     const { database } = await connectToDatabase();
     const collection = database.collection(COLLECTION);
-    
+
     const { id } = request.params
     const results = await collection.find({ _id: id }).toArray()
 
@@ -82,7 +87,7 @@ app.put('/api/users/:id', async (request, response) => {
 app.delete('/api/users/:id', async (request, response) => {
     const { database } = await connectToDatabase();
     const collection = database.collection(COLLECTION);
-    
+
     const { id } = request.params
     const results = await collection.deleteOne({ _id: id }).toArray()
     response.status(200).json(results)
