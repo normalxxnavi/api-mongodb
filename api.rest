@@ -1,0 +1,45 @@
+# Ejemplos
+
+POST http://localhost:3000/api/users HTTP/1.1
+content-type: application/json
+
+{ 
+    "nombre": "Eva", 
+    "edad": 20 
+}
+
+### 
+
+POST http://localhost:3000/api/users HTTP/1.1
+content-type: application/json
+
+{ 
+    "nombre": "Jose", 
+    "edad": 21 
+}
+
+
+### 
+
+GET http://localhost:3000/api/users HTTP/1.1
+content-type: application/json
+
+###
+
+GET http://localhost:3000/api/users/6542da20c20d9ad95c739701 HTTP/1.1
+content-type: application/json
+
+###
+
+PUT http://localhost:3000/api/users/6542da20c20d9ad95c739701 HTTP/1.1
+content-type: application/json
+
+{ 
+    "nombre": "Juan", 
+    "edad": 22 
+}
+
+###
+
+DELETE http://localhost:3000/api/users/6542da20c20d9ad95c739701 HTTP/1.1
+content-type: application/json
