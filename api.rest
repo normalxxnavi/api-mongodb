@@ -26,17 +26,17 @@ content-type: application/json
 
 ###
 
-GET http://localhost:3000/api/users/6542da20c20d9ad95c739701 HTTP/1.1
+GET http://localhost:3000/api/users/6548f6566802ae8e19bd782b HTTP/1.1
 content-type: application/json
 
 ###
 
-PUT http://localhost:3000/api/users/6542da20c20d9ad95c739701 HTTP/1.1
+PUT http://localhost:3000/api/users/6548f6566802ae8e19bd782b HTTP/1.1
 content-type: application/json
 
 { 
-    "nombre": "Juan", 
-    "edad": 22 
+    "nombre": "José Antonio", 
+    "edad": 32 
 }
 
 ###
