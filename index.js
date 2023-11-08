@@ -78,5 +78,5 @@ app.delete('/api/users/:id', async (request, response) => {
 })
 
 
-app.listen(PORT, () => console.log(`Servidor web iniciado en puerto ${PORT}`))
+app.listen(PORT, () => console.log(`Puerto ${PORT}`))
 
